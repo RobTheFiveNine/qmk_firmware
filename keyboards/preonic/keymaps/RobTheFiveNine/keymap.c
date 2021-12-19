@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Del  |  Lft |  Dwn | Rght |  F4  |  F5  |  F6  |   _  |   +  |   [  |   ]  |  ~   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO ~ |ISO | | Home |   \  |      |
+ * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO ~ |   <  |   >  |   \  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |   [  |   ]  | Vol- | Vol+ |
  * `-----------------------------------------------------------------------------------'
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, RALT(LSFT(KC_4)),  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQL,
   KC_TILD, KC_EXLM, KC_UP,   KC_HASH,           KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LCBR, KC_RCBR, KC_DEL,
   KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT,            KC_F4,   KC_F5,   KC_F6,   KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_PIPE,
-  _______, KC_F7,   KC_F8,   KC_F9,             KC_F10,  KC_F11,  KC_F12,S(KC_NUHS),S(KC_NUBS),KC_HOME, KC_BSLASH, _______,
+  _______, KC_F7,   KC_F8,   KC_F9,             KC_F10,  KC_F11,  KC_F12,S(KC_NUHS),S(KC_COMM),S(KC_DOT), KC_BSLASH, _______,
   _______, _______, _______, _______,          _______, _______, _______, _______, KC_LBRC,   KC_RBRC,  KC_VOLD, KC_VOLU
 ),
 
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+---------|
  * |      |Voice-|Voice+|Mus on|MusOff|MidiOn|MidOff|      |      |      |      |         |
  * |------+------+------+------+------+------+------+------+------+------+------+---------|
- * |Purple| Green|      |      |      |             |      |      |      |      | TgClick |
+ * |Purple| Green|      |      |      | Toggle RGB  |      |      |      |      | TgClick |
  * `--------------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_preonic_grid(
@@ -116,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF,_______, _______, KC_DEL,
   _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______, _______,  _______, _______,
   _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______,
-   PURPLE,  GREEN, _______, _______, _______, _______, _______, _______, _______, _______, _______, CK_TOGG
+   PURPLE,  GREEN, _______, _______, _______, RGB_TOG, RGB_TOG, _______, _______, _______, _______, CK_TOGG
 ),
 
 /* FN
