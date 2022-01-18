@@ -29,7 +29,8 @@ enum preonic_keycodes {
   LOWER,
   RAISE,
   PURPLE,
-  GREEN
+  GREEN,
+  PINK
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -40,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -62,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |   ~  |   !  |  Up  |   #  |   $  |   %  |   ^  |   &  |   *  |   {  |   }  | Del  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Del  |  Lft |  Dwn | Rght |  F4  |  F5  |  F6  |   _  |   +  |   [  |   ]  |  ~   |
+ * | Del  |  Lft |  Dwn | Rght |  F4  |  F5  |  F6  |   _  |   +  |   [  |   ]  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO ~ |   <  |   >  |   \  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -72,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT_preonic_grid(
   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, RALT(LSFT(KC_4)),  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQL,
   KC_TILD, KC_EXLM, KC_UP,   KC_HASH,           KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LCBR, KC_RCBR, KC_DEL,
-  KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT,            KC_F4,   KC_F5,   KC_F6,   KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_PIPE,
+  KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT,            KC_F4,   KC_F5,   KC_F6,   KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, S(KC_QUOT),
   _______, KC_F7,   KC_F8,   KC_F9,             KC_F10,  KC_F11,  KC_F12,S(KC_NUHS),S(KC_COMM),S(KC_DOT), KC_BSLASH, _______,
   _______, _______, _______, _______,          _______, _______, _______, _______, KC_LBRC,   KC_RBRC,  KC_VOLD, KC_VOLU
 ),
@@ -99,24 +100,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 /* Adjust (Lower + Raise)
- * ,--------------------------------------------------------------------------------------.
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12    |
- * |------+------+------+------+------+------+------+------+------+------+------+---------|
- * |      | Reset| Debug|      |      |      |      |TermOf|TermOn|      |      |  Del    |
- * |------+------+------+------+------+-------------+------+------+------+------+---------|
- * |      |      |Aud cy|Aud on|AudOff|AGnorm|AGswap|Qwerty|      |      |      |         |
- * |------+------+------+------+------+------|------+------+------+------+------+---------|
- * |      |Voice-|Voice+|Mus on|MusOff|MidiOn|MidOff|      |      |      |      |         |
- * |------+------+------+------+------+------+------+------+------+------+------+---------|
- * |Purple| Green|      |      |      | Toggle RGB  |      |      |      |      |         |
- * `--------------------------------------------------------------------------------------'
+ * ,---------------------------------------------------------------------------------------.
+ * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |  F11  |  F12    |
+ * |------+------+------+------+------+------+------+------+------+------+-------+---------|
+ * |      | Reset| Debug|      |      |      |      |TermOf|TermOn|      |       |  Del    |
+ * |------+------+------+------+------+-------------+------+------+------+-------+---------|
+ * |      |      |Aud cy|Aud on|AudOff|AGnorm|AGswap|Qwerty|      |      |       |         |
+ * |------+------+------+------+------+------|------+------+------+------+-------+---------|
+ * |      |Voice-|Voice+|Mus on|MusOff|MidiOn|MidOff|      |      |      |       |         |
+ * |------+------+------+------+------+------+------+------+------+------+-------+---------|
+ * |Purple| Green| Pink |      |      | Toggle RGB  |      |      |      |RGB_HUD| RGB_HUI |
+ * `---------------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_preonic_grid(
-  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-  _______, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF,_______, _______, KC_DEL,
-  _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______, _______,  _______, _______,
+  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,  KC_F12,
+  _______, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF,_______, _______,  KC_DEL,
+  _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______, _______, _______, _______,
   _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______,
-   PURPLE,  GREEN, _______, _______, _______, RGB_TOG, RGB_TOG, _______, _______, _______, _______, _______
+   PURPLE,  GREEN, PINK, _______, _______, RGB_TOG, RGB_TOG, _______, _______, _______,  RGB_HUD, RGB_HUI
 ),
 
 /* FN
@@ -180,6 +181,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           rgblight_sethsv_noeeprom(HSV_GREEN);
           return false;
           break;
+
+        case PINK:
+          rgblight_sethsv_noeeprom(HSV_CUSTOM_PINK);
+          return false;
+          break;
       }
     return true;
 };
@@ -187,7 +193,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef RGBLIGHT_ENABLE
 void keyboard_post_init_user(void) {
   rgblight_enable_noeeprom(); // Enables RGB, without saving settings
-  rgblight_sethsv_noeeprom(HSV_PURPLE);
+  rgblight_sethsv_noeeprom(HSV_CUSTOM_PINK);
   rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
 }
 #endif
